@@ -1,0 +1,65 @@
+.sleepy-countdown--classic .sleepy-classic__unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: var(--sleepy-countdown-unit-width);
+}
+
+.sleepy-classic__card {
+  position: relative;
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 6px;
+  background: var(--sleepy-countdown-card-bg);
+  color: var(--sleepy-countdown-card-fg);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06), 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* The horizontal seam across the middle of a flip card. */
+.sleepy-classic__card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.sleepy-classic__value {
+  display: inline-block;
+  transform-origin: center top;
+  animation: sleepy-flip 0.4s ease-out;
+}
+
+@keyframes sleepy-flip {
+  0% {
+    transform: rotateX(-90deg);
+    opacity: 0.2;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+.sleepy-classic__label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sleepy-countdown-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sleepy-classic__value {
+    animation: none;
+  }
+}

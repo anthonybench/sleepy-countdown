@@ -1,0 +1,92 @@
+/*
+ * Shared frame + theming variables.
+ *
+ * Everything cosmetic is expressed as a `--sleepy-countdown-*` custom property with a
+ * fallback default, so consumers can recolor the component from their own CSS:
+ *
+ *   .my-page .sleepy-countdown { --sleepy-countdown-accent: tomato; }
+ *
+ * The default palette is Catppuccin Mocha (https://catppuccin.com). Override any
+ * variable to switch flavors (the demo shows a Catppuccin Latte light theme).
+ *
+ * Note: font-family is deliberately NOT set, so text inherits the host app font.
+ */
+.sleepy-countdown {
+  /* Theming API — override these from consumer CSS. Defaults: Catppuccin Mocha. */
+  --sleepy-countdown-fg: #cdd6f4;     /* Text */
+  --sleepy-countdown-muted: #a6adc8;  /* Subtext0 */
+  --sleepy-countdown-accent: #cba6f7; /* Mauve */
+
+  /* The component's own card surface. */
+  --sleepy-countdown-surface: #1e1e2e;            /* Base */
+  --sleepy-countdown-border: 1px solid #313244;   /* Surface0 */
+  --sleepy-countdown-surface-radius: 18px;
+  --sleepy-countdown-padding: 22px 26px;
+  --sleepy-countdown-shadow: 0 10px 30px rgba(17, 17, 27, 0.5); /* Crust */
+
+  /* The individual time-unit cards inside the timer (modern/classic). */
+  --sleepy-countdown-card-bg: #313244; /* Surface0 */
+  --sleepy-countdown-card-fg: #cdd6f4; /* Text */
+  --sleepy-countdown-radius: 12px;
+  --sleepy-countdown-gap: 10px;
+
+  /* Layout constants that keep the timer the same size everywhere. */
+  --sleepy-countdown-unit-width: 68px;
+  --sleepy-countdown-timer-height: 96px;
+
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--sleepy-countdown-fg);
+  text-align: center;
+  box-sizing: border-box;
+
+  /* Card container. */
+  background: var(--sleepy-countdown-surface);
+  border: var(--sleepy-countdown-border);
+  border-radius: var(--sleepy-countdown-surface-radius);
+  padding: var(--sleepy-countdown-padding);
+  box-shadow: var(--sleepy-countdown-shadow);
+}
+
+.sleepy-countdown *,
+.sleepy-countdown *::before,
+.sleepy-countdown *::after {
+  box-sizing: border-box;
+}
+
+.sleepy-countdown__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.sleepy-countdown__description {
+  font-size: 0.9rem;
+  color: var(--sleepy-countdown-muted);
+  line-height: 1.3;
+}
+
+/*
+ * Fixed-height flex row. The height is constant so swapping the timer for the
+ * end message never resizes the component (spec requirement).
+ */
+.sleepy-countdown__timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sleepy-countdown-gap);
+  height: var(--sleepy-countdown-timer-height);
+  margin-top: 8px;
+}
+
+/* End message occupies the same box the timer did. */
+.sleepy-countdown__end {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--sleepy-countdown-fg);
+}

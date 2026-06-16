@@ -1,0 +1,28 @@
+.sleepy-countdown--modern .sleepy-modern__unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: var(--sleepy-countdown-unit-width);
+}
+
+.sleepy-modern__value {
+  width: 100%;
+  padding: 12px 0;
+  border-radius: var(--sleepy-countdown-radius);
+  background: linear-gradient(145deg, var(--sleepy-countdown-card-bg), var(--sleepy-countdown-surface));
+  color: var(--sleepy-countdown-accent);
+  font-size: 1.75rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.sleepy-modern__label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sleepy-countdown-muted);
+}
